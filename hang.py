@@ -53,7 +53,9 @@ def hangman(word, difficulty=12):
         display_word(word, guessed)
         display_hanged(word, wrong, difficulty)
         guess = input("guess a letter or the word: ").upper()
-        # os.system('clear')
+        os.system('clear')
+        if len(guess) == 0:
+            continue
         if len(guess) > 1:
             if guess == word:
                 guessed = list(word)
@@ -70,7 +72,6 @@ def hangman(word, difficulty=12):
             display_hanged(word, wrong, difficulty)
             return 1
         elif check_win(word, guessed) == True:
-            print("BRAVOO")
             display_word(word, guessed)
             return 0
 
